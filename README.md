@@ -1,1 +1,1 @@
-# online-publishing-platform-ms-
+# online-publishing-platform-msa
