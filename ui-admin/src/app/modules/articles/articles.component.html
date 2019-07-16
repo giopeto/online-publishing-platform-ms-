@@ -1,0 +1,21 @@
+<section>
+    <form [formGroup]="articlesForm" (ngSubmit)="save(articlesForm.value)">
+        <div>
+            <label for="name">Name</label>
+            <div *ngIf="!articlesForm.controls['name'].valid && articlesForm.controls['name'].touched">
+                <strong>Name</strong> is required field
+            </div>
+            <input type="text" formControlName="name">
+        </div>
+        <div>
+            <label for="name">Article body</label>
+            <div *ngIf="!articlesForm.controls['body'].valid && articlesForm.controls['body'].touched">
+                <strong>Article body</strong> is required field
+            </div>
+            <textarea formControlName="body"></textarea>
+        </div>
+        <button type="submit" [disabled]="!articlesForm.valid">
+            Create
+        </button>
+    </form>
+</section>
