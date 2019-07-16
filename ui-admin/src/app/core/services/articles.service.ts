@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Articles } from 'src/app/shared/models/articles';
 import { HttpClient } from '@angular/common/http';
 
@@ -12,6 +12,10 @@ export class ArticlesService {
   private apiUrl = `${API_BASE_URL}/articles`;
 
   constructor(private http: HttpClient) { }
+
+  get() {
+    return this.http.get<Articles[]>(`${this.apiUrl}`, HTTP_OPTIONS);
+  }
 
   save(article: Articles) {
     return this.http.post<Articles>(`${this.apiUrl}`, article, HTTP_OPTIONS);

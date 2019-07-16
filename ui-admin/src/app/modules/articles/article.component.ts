@@ -12,16 +12,22 @@ export class ArticlesComponent implements OnInit {
   
   articlesForm: FormGroup;
   article: Articles = { name: '', body: '' };
+  articles: Articles[];
 
   constructor(private articlesService: ArticlesService, private formBuilder: FormBuilder) { 
     this.buildForm(this.article);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.get();
+  }
+
+  get() {
+    return this.articlesService.get().subscribe(data=> this.articles = data);
   }
 
   save(article: Articles) {
-    this.articlesService.save(article).subscribe(data=> console.log(data));
+    this.articlesService.save(article).subscribe(() => this.get());
   }
 
   buildForm(article: Articles) {
