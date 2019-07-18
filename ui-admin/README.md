@@ -44,17 +44,16 @@ You can also use
 
 `ng test`
 
+### Build, tag and push docker image
+
+docker build -t opp-ui-admin:V4 -t opp-ui-admin --pull --no-cache . &&
+
+docker tag opp-ui-admin:V4 giopeto/opp-ui-admin:V4 &&
+
+docker push giopeto/opp-ui-admin:V4
 
 
-
-
-
-
-
-
-
-
-
+docker build -t opp-ui-admin:V4 -t opp-ui-admin --pull --no-cache . && docker tag opp-ui-admin:V4 giopeto/opp-ui-admin:V4 && docker push giopeto/opp-ui-admin:V4
 
 ````
 

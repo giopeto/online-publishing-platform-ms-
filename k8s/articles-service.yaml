@@ -1,0 +1,38 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: opp-articles-service
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: opp-articles-service
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: opp-articles-service
+          image: giopeto/opp-articles-service:V2
+          imagePullPolicy: Always
+          env:
+          - name: MONGODB_HOST
+            value: mongodb
+          ports:
+          - containerPort: 30002
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: opp-articles-service
+spec:
+  selector:
+    app: opp-articles-service
+  ports:
+    - protocol: "TCP"
+      # Port accessible inside cluster
+      port: 8080
+      # Port to forward to inside the pod
+      targetPort: 8080
+      # Port accessible outside cluster
+      nodePort: 30002
+  type: LoadBalancer

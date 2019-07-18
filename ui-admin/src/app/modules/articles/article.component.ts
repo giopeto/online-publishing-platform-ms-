@@ -23,7 +23,7 @@ export class ArticlesComponent implements OnInit {
   }
 
   get() {
-    return this.articlesService.get().subscribe(data=> this.articles = data);
+    this.articlesService.get().subscribe(data => this.articles = data as Articles[]);
   }
 
   save(article: Articles) {
