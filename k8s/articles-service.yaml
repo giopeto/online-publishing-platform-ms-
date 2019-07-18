@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: opp-articles-service
 spec:
-  replicas: 1
+  replicas: 3
   template:
     metadata:
       labels:
@@ -12,7 +12,7 @@ spec:
       restartPolicy: Always
       containers:
         - name: opp-articles-service
-          image: giopeto/opp-articles-service:V2
+          image: giopeto/opp-articles-service:V5
           imagePullPolicy: Always
           env:
           - name: MONGODB_HOST

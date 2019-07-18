@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
         - name: opp-ui-admin
-          image: giopeto/opp-ui-admin:V4
+          image: giopeto/opp-ui-admin:V6
           ports:
             - containerPort: 30001
 ---

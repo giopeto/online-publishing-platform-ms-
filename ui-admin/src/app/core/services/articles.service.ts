@@ -1,8 +1,7 @@
-import { Injectable, OnInit } from '@angular/core';
-import { Articles } from 'src/app/shared/models/articles';
-import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 
-import { API_BASE_URL, HTTP_OPTIONS } from 'src/app/shared/ApiConstants';
+import { Articles } from 'src/app/shared/models/articles';
+import { API_BASE_URL } from 'src/app/shared/ApiConstants';
 import { HttpService } from './http.service';
 
 @Injectable({
@@ -20,5 +19,9 @@ export class ArticlesService {
 
   save(article: Articles) {
     return this.httpService.post(this.apiUrl, article);
+  }
+
+  deleteAll() {
+    return this.httpService.delete(this.apiUrl);
   }
 }

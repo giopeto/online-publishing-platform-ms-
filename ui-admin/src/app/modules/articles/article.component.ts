@@ -30,6 +30,10 @@ export class ArticlesComponent implements OnInit {
     this.articlesService.save(article).subscribe(() => this.get());
   }
 
+  deleteAll() {
+    this.articlesService.deleteAll().subscribe(() => this.get());
+  }
+
   buildForm(article: Articles) {
     this.articlesForm = this.formBuilder.group({
       'name' : [article.name, Validators.required],

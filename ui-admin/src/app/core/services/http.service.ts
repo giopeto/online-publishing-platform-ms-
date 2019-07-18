@@ -7,7 +7,6 @@ import { HTTP_OPTIONS } from 'src/app/shared/ApiConstants';
 })
 export class HttpService {
   
-
   constructor(private http: HttpClient) { }
 
   get(apiUrl: string) {
@@ -16,5 +15,9 @@ export class HttpService {
 
   post(apiUrl: string, payload) {
     return this.http.post(apiUrl, payload, HTTP_OPTIONS);
+  }
+
+  delete(apiUrl: string) {
+    return this.http.delete(apiUrl, HTTP_OPTIONS);
   }
 }

@@ -3,6 +3,7 @@ package com.opp.articlesservice.V1.articles;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
 import org.springframework.web.bind.annotation.*;
+import reactor.core.Disposable;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -21,5 +22,10 @@ public class ArticlesController {
     @PostMapping
     public Mono<Articles> save(@RequestBody Articles groups) {
         return articlesService.save(groups);
+    }
+
+    @DeleteMapping
+    public Disposable deleteAll() {
+        return articlesService.deleteAll();
     }
 }
