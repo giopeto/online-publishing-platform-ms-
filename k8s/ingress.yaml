@@ -1,10 +1,22 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: k8s-boot-microservice-communication-ingress
+  name: gateway-ingress
   annotations:
-    kubernetes.io/ingress.allow-http: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   backend:
-    serviceName: opp-articles-service
-    servicePort: 8080
+    serviceName: default-http-backend
+    servicePort: 80
+  rules:
+  - host: online-publishing-platform.io
+    http:
+      paths:
+      - path: /articles
+        backend:
+          serviceName: opp-articles-svc
+          servicePort: 8080
+      - path: /
+        backend:
+          serviceName: opp-ui-admin-svc
+          servicePort: 80

@@ -1,13 +1,13 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: opp-articles-service
+  name: opp-articles-dep
 spec:
   replicas: 3
   template:
     metadata:
       labels:
-        app: opp-articles-service
+        app: opp-articles
     spec:
       restartPolicy: Always
       containers:
@@ -17,16 +17,15 @@ spec:
           env:
           - name: MONGODB_HOST
             value: mongodb
-          ports:
-          - containerPort: 30002
+          
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: opp-articles-service
+  name: opp-articles-svc
 spec:
   selector:
-    app: opp-articles-service
+    app: opp-articles
   ports:
     - protocol: "TCP"
       # Port accessible inside cluster
