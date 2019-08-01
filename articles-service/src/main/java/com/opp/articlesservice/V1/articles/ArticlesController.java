@@ -20,8 +20,8 @@ public class ArticlesController {
     }
 
     @PostMapping
-    public Mono<Articles> save(@RequestBody Articles groups) {
-        return articlesService.save(groups);
+    public Mono<Articles> save(@RequestBody Articles articles) {
+        return articlesService.save(articles);
     }
 
     @DeleteMapping

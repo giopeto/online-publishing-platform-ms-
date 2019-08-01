@@ -1,18 +1,18 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: opp-articles-dep
+  name: opp-ratings-dep
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: opp-articles-service
+        app: opp-ratings-service
     spec:
       restartPolicy: Always
       containers:
-        - name: opp-articles-service
-          image: giopeto/opp-articles-service:V20
+        - name: opp-ratings-service
+          image: giopeto/opp-ratings-service:V5
           imagePullPolicy: Always
           env:
           - name: MONGODB_HOST
@@ -22,10 +22,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: opp-articles-svc
+  name: opp-ratings-svc
 spec:
   selector:
-    app: opp-articles-service
+    app: opp-ratings-service
   ports:
     - protocol: "TCP"
       # Port accessible inside cluster
@@ -33,5 +33,6 @@ spec:
       # Port to forward to inside the pod
       targetPort: 8080
       # Port accessible outside cluster
-      nodePort: 30002
+      nodePort: 30004
   type: LoadBalancer
+

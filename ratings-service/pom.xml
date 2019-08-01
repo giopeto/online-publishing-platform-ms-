@@ -9,16 +9,15 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.opp</groupId>
-	<artifactId>articles-service</artifactId>
+	<artifactId>ratings-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>articles-service</name>
-	<description>Articles service</description>
+	<name>ratings-service</name>
+	<description>Ratings service</description>
 
 	<properties>
 		<java.version>1.8</java.version>
 		<spring-boot-admin.version>2.1.5</spring-boot-admin.version>
 		<spring-cloud.version>Greenwich.SR2</spring-cloud.version>
-		<spring-cloud-starter-netflix-ribbon.version>2.0.0.RELEASE</spring-cloud-starter-netflix-ribbon.version>
 	</properties>
 
 	<dependencies>
@@ -43,28 +42,13 @@
 			<artifactId>spring-boot-starter-webflux</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-kubernetes</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>de.codecentric</groupId>
 			<artifactId>spring-boot-admin-starter-client</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-openfeign</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
-			<version>${spring-cloud-starter-netflix-ribbon.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-kubernetes-ribbon</artifactId>
-		</dependency>
-
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

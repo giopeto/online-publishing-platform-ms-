@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { Articles } from 'src/app/shared/models/articles';
-import { API_BASE_URL } from 'src/app/shared/ApiConstants';
+import { getApiBaseUrl } from 'src/app/shared/ApiConstants';
 import { HttpService } from './http.service';
 
 @Injectable({
@@ -9,7 +9,7 @@ import { HttpService } from './http.service';
 })
 export class ArticlesService {
   
-  private apiUrl = `${API_BASE_URL}/articles`;
+  private apiUrl = getApiBaseUrl('articles') + `/articles`;
 
   constructor(private httpService: HttpService) { }
 

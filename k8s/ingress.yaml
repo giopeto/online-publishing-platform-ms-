@@ -12,11 +12,15 @@ spec:
   - host: online-publishing-platform.io
     http:
       paths:
-      - path: /articles
-        backend:
-          serviceName: opp-articles-svc
-          servicePort: 8080
       - path: /
         backend:
           serviceName: opp-ui-admin-svc
           servicePort: 80
+      - path: /articles
+        backend:
+          serviceName: opp-articles-svc
+          servicePort: 8080
+      - path: /ratings
+        backend:
+          serviceName: opp-ratings-svc
+          servicePort: 8080

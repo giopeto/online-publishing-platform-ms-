@@ -1,4 +1,5 @@
 export interface Articles {
-    name: string;
-    body: string;
+    id?: String;
+    name: String;
+    body: String;
 }

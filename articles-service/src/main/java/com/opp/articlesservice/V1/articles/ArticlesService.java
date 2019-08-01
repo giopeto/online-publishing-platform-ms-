@@ -6,7 +6,7 @@ import reactor.core.publisher.Mono;
 
 public interface ArticlesService {
 
-    Mono<Articles> save(Articles groups);
+    Mono<Articles> save(Articles articles);
 
     Flux<Articles> get();
 

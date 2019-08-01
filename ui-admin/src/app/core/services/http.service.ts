@@ -14,6 +14,7 @@ export class HttpService {
   }
 
   post(apiUrl: string, payload) {
+    console.log('1', payload);
     return this.http.post(apiUrl, payload, HTTP_OPTIONS);
   }
 

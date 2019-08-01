@@ -20,7 +20,14 @@
     </form>
 
     <h2>All</h2>
-    <pre>{{articles | json}}</pre>
+    <div *ngFor="let article of articles">
+        <div>ID: {{article.id}}</div>
+        <div>Name: {{article.name}}</div>
+        <div>Body: {{article.body}}</div>
+        <app-ratings articleId="{{article.id}}"></app-ratings>
+        <hr>
+    </div>
+    
     <button (click)="deleteAll()">
         Delete All
     </button>

@@ -1,4 +1,4 @@
-package com.opp.articlesservice.config;
+package com.opp.ratingsservice.config;
 
 import com.mongodb.reactivestreams.client.MongoClient;
 import com.mongodb.reactivestreams.client.MongoClients;
