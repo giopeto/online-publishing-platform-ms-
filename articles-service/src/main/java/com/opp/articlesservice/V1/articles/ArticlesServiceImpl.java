@@ -1,5 +1,6 @@
 package com.opp.articlesservice.V1.articles;
 
+import com.opp.articlesservice.V1.ratings.RatingsClient;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
@@ -18,10 +19,11 @@ import java.net.UnknownHostException;
 @Slf4j
 public class ArticlesServiceImpl implements ArticlesService {
 
-    @NonNull private final ArticlesRepository articlesRepository;
+    @NonNull
+    private final ArticlesRepository articlesRepository;
 
-    //@NonNull
-    //private final RatingsClient ratingsClient;
+    @NonNull
+    private final RatingsClient ratingsClient;
 
     @Autowired
     private DiscoveryClient discoveryClient;
@@ -43,9 +45,9 @@ public class ArticlesServiceImpl implements ArticlesService {
 
         log.info("XXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXXXXXXXXXXX discoveryClient.getServices(): {}", discoveryClient.getServices());
 
-        //ratingsClient.getAllRatings().stream().forEach(ratings -> System.out.println("Rating: " + ratings.toString()));
+        ratingsClient.getAllRatings().stream().forEach(ratings -> System.out.println("Rating: " + ratings.toString()));
 
-        //log.info("All ratings: {}", ratingsClient.getAllRatings().toString());
+        log.info("All ratings: {}", ratingsClient.getAllRatings().toString());
         return articlesRepository.findAll();
     }
 

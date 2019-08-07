@@ -1,9 +1,9 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: gateway-ingress
+  name: opp-gateway-ingress-backend
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   backend:
     serviceName: default-http-backend
@@ -12,15 +12,11 @@ spec:
   - host: online-publishing-platform.io
     http:
       paths:
-      - path: /
-        backend:
-          serviceName: opp-ui-admin-svc
-          servicePort: 80
-      - path: /articles
+      - path: /articles(/|$)(.*)
         backend:
           serviceName: opp-articles-svc
           servicePort: 8080
-      - path: /ratings
+      - path: /ratings(/|$)(.*)
         backend:
           serviceName: opp-ratings-svc
           servicePort: 8080

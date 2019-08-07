@@ -8,7 +8,6 @@ import java.util.List;
 @FeignClient(name = "opp-ratings-svc")
 public interface RatingsClient {
 
-
     @GetMapping("/api/V1/ratings")
     List<Ratings> getAllRatings();
 }

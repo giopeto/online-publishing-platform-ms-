@@ -12,7 +12,7 @@ spec:
       restartPolicy: Always
       containers:
         - name: opp-ratings-service
-          image: giopeto/opp-ratings-service:V5
+          image: giopeto/opp-ratings-service:V1
           imagePullPolicy: Always
           env:
           - name: MONGODB_HOST
